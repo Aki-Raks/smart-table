@@ -21,10 +21,10 @@ const api = initData();
  */
 function collectState() {
     const state = processFormData(new FormData(sampleTable.container));
-    const rowsPerPage = parseInt(state.rowsPerPage);    // приведём количество страниц к числу
-    const page = parseInt(state.page ?? 1);                // номер страницы по умолчанию 1 и тоже число
+    const rowsPerPage = parseInt(state.rowsPerPage);    
+    const page = parseInt(state.page ?? 1);                
 
-    return {                                            // расширьте существующий return вот так
+    return {                                            
         ...state,
         rowsPerPage,
         page
@@ -36,8 +36,8 @@ function collectState() {
  * @param {HTMLButtonElement?} action
  */
 async function render(action) {
-    let state = collectState(); // состояние полей из таблицы
-    let query = {};// копируем для последующего изменения
+    let state = collectState();
+    let query = {};
     // @todo: использование
     query = applySearching(query, state, action);
     query = applyFiltering(query, state, action);
